@@ -1,0 +1,13 @@
+<apex:page controller="DG_SelectTemplateController">
+    <apex:pageBlock >
+    <apex:sectionHeader title="Document Generated" description="Click on document link to view and Download document"/>
+        <apex:pageBlockTable value="{!docRecordList}" var="doc">
+            <apex:column headerValue="Document Name">
+                <apex:outputLabel value="{!doc.Attachment_Name__c}"> </apex:outputLabel>
+            </apex:column>
+            <apex:column headerValue="Document Link">
+                <apex:outputLink value="{!doc.Doc_Link__c}" >{!doc.Name} </apex:outputLink>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

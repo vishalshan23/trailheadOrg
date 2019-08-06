@@ -1,0 +1,20 @@
+<apex:page controller="DG_SelectTemplateController">
+    <apex:form >
+        <apex:messages />
+        <apex:pageBlock >
+        <apex:sectionHeader title="Select Template"/>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Next" action="{!saveDocRecord}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!wrapList}" var="wrp">
+                <apex:column headerValue="Selected" >
+                    <apex:inputCheckbox value="{!wrp.selected}"/>
+                </apex:column>
+
+                <apex:column value="{!wrp.template.Name}"/>
+                <apex:column value="{!wrp.template.Description__c}"/>
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

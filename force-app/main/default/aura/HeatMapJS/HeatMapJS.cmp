@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    
+    <ltng:require scripts="{!$Resource.HeatMapJS}"
+					afterScriptsLoaded="{!c.scriptsLoaded}" />
+    
+    <div>
+		<div class="slds-text-heading--medium">Heat Map</div>
+	    <canvas aura:id="chart" height="380" width="500"></canvas>
+    </div>
+</aura:component>

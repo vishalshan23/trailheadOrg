@@ -1,0 +1,35 @@
+<apex:page controller="Demo_MultiSelectTextAreaCC" id="thePage">
+  
+  <apex:pageBlock id="thePgBlock1">
+  
+   
+      <script>
+      var QB_fields_selected; 
+      function buildQuery(){
+          var QB_object_sel = 'Account';//document.getElementById('QB_object_sel').value;
+          var QB_field_sel = document.getElementById('thePage:thePgBlock1:thePgBlock1:QB_field_sel');
+          QB_fields_selected = new Array();
+          for (var i = 0; i < QB_field_sel.options.length; i++) {
+            if (QB_field_sel.options[i].selected && QB_field_sel.options[i].value != "") {
+                QB_fields_selected.push(QB_field_sel.options[i].value);
+            }
+        }
+         var soql_select = '';
+         if (QB_fields_selected.length > 0){
+             var soql_select = 'SELECT ' + QB_fields_selected + ' FROM ' + QB_object_sel;
+         }
+         
+         if (soql_select)
+             document.getElementById('soql_query_textarea').value = soql_select;
+      }
+      </script>
+      <apex:form id="thePgBlock1">
+          <apex:selectList multiselect="true" id="QB_field_sel" onchange="buildQuery();" onclick="buildQuery();">
+              <apex:selectOptions value="{!FieldOptions}"></apex:selectOptions>
+          </apex:selectList>
+          <br></br>
+      <textarea id="soql_query_textarea" type="text" name="soql_query" rows="5" style="width: 99%; overflow: auto; font-family: monospace, courier;"></textarea>
+     
+      </apex:form>
+  </apex:pageBlock>
+</apex:page>

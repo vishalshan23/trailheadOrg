@@ -1,0 +1,6 @@
+<apex:page standardController="DOC_Doc_Record__c">
+    <apex:repeat value="{!$ObjectType.DOC_Doc_Record__c.FieldSets.Doc_Record_Field_Set}" var="yo">
+        <apex:outputText >{!yo.fieldPath}</apex:outputText>
+        <br></br>
+    </apex:repeat>
+</apex:page>

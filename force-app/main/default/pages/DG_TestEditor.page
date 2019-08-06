@@ -1,0 +1,72 @@
+<apex:page showHeader="true" extensions="DG_TestEditorController" standardController="DOC_Template__c">
+
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>A Simple Page with CKEditor</title>
+        <!-- Make sure the path to CKEditor is correct. -->
+        <script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script>
+
+    </head>
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton onclick="getHTMLData();" value="Save" reRender="hiddendiv"/>
+            <apex:commandButton value="Cancel" action="{!cancel}" reRender=""/>
+        </apex:pageBlockButtons>
+        <div id="hiddendiv" />
+        <textarea name="editor1" id="editor1" rows="10" cols="80">
+        </textarea>
+        
+       <script>
+       
+       //function for cancel button
+       function cancelMain(){
+       var url = '/' + '{!$CurrentPage.parameters.id}';
+       window.location.href = url;
+       }
+       
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        var editor = CKEDITOR.replace('editor1');
+        var tempId = '{!$CurrentPage.parameters.id}';
+        
+        
+        CKEDITOR.instances.editor1.on("instanceReady", function(event){
+            var encodedData = "{!htmldata}";
+            //encodedData = encodedData.replace('+', '%20');
+            //console.log()
+            var decodedData = decodeURIComponent(encodedData);
+            //decodedData = decodedData.replace('+', ' ');
+             CKEDITOR.instances.editor1.insertHtml(decodedData);
+            
+        });
+        
+        
+        
+        function getHTMLData(){
+        var editorEle = CKEDITOR.instances.editor1;
+        var data = editorEle.getData();
+        console.log(data);
+        
+        
+        if(data){
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DG_TestEditorController.saveHtmldata}',
+                data,
+                tempId,
+                function(result,event){
+                    
+                },
+                {escape: true}
+            
+            );
+         }
+        
+        }
+      </script>
+        
+    </apex:pageBlock>
+<apex:inputHidden value="{!DOC_Template__c.Template_HTML__c}"/>
+<apex:inputHidden value="{!DOC_Template__c.Template_HTML_encode__c}"/>
+    </apex:form>
+</apex:page>

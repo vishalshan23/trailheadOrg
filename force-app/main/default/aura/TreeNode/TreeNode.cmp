@@ -1,0 +1,25 @@
+<aura:component >
+    <aura:attribute name="node" type="Object" />
+    <aura:attribute name="expanded" type="Boolean" default="false" />
+
+    <div >
+        <div onclick="{!c.toggle}">
+            <aura:if isTrue="{!v.node.items.length>0}">
+                [ {!v.expanded?'-':'+'} ]
+            </aura:if> {!v.node.Name}
+        </div>
+        <aura:if isTrue="{!v.expanded}">
+            <div class="node">
+                <aura:iteration items="{!v.node.items}" var="node">
+                    <c:TreeNode node="{!node}" />
+                </aura:iteration>
+            </div>
+        </aura:if>
+    </div>
+    
+    
+    <div aura:id="testid">
+    </div>
+    <div aura:id="testid">
+    </div>
+</aura:component>
