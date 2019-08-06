@@ -15,6 +15,6 @@ jobs:
           name: Print the Current Time
           command: date
 
-      -run:
+      - run:
         name: Hello Streamers
         command: echo Hello Streamers
