@@ -16,5 +16,5 @@ jobs:
           command: date
 
       - run:
-        name: Hello Streamers
-        command: echo Hello Streamers
+          name: Hello Streamers
+          command: echo Hello Streamers
