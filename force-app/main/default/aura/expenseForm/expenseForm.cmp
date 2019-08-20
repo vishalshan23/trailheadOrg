@@ -9,6 +9,8 @@
                                  'Date__c': '',
                                  'Reimbursed__c': false }"
   />
+  <aura:registerEvent name="createExpense" type="c:expensesItemUpdate"/>
+
   <!-- NEW EXPENSE FORM -->
   <lightning:layout>
     <lightning:layoutItem padding="around-small" size="6">

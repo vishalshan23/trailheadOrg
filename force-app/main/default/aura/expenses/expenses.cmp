@@ -1,12 +1,16 @@
 <aura:component controller="ExpensesController">
   <aura:attribute name="expenses" type="Expense__c[]" />
 
-  
   <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
   <aura:handler
     name="updateExpense"
     event="c:expensesItemUpdate"
     action="{!c.handleUpdateExpense}"
+  />
+  <aura:handler
+    name="createExpense"
+    event="c:expensesItemUpdate"
+    action="{!c.handleCreateExpense}"
   />
 
   <!-- PAGE HEADER -->
@@ -33,5 +37,13 @@
     </lightning:layoutItem>
   </lightning:layout>
 
-  <c:expensesList expenses="{!v.expenses}" />
+  <lightning:layout>
+    <lightning:layoutItem padding="around-small" size="6">
+        <c:expensesList expenses="{!v.expenses}"/>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="around-small" size="6">
+        Put something cool here
+    </lightning:layoutItem>
+</lightning:layout>
+
 </aura:component>
