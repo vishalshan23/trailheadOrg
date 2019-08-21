@@ -13,21 +13,21 @@
     // Send action off to be executed
     $A.enqueueAction(action);
   },
-  clickCreateItem: function(component, event, helper) {
-    var validCampingItem = component
-      .find("campingItem")
-      .reduce(function(validSoFar, inputCmp) {
-        // Displays error messages for invalid fields
-        inputCmp.showHelpMessageIfInvalid();
-        return validSoFar && inputCmp.get("v.validity").valid;
-      }, true);
-
-    if (validCampingItem) {
-      var newItem = component.get("v.newItem");
-    //Call helper method to create a new camping record in server
-    helper.createItem(component,newItem);
-      
-      
-    }
+  handleAdditem : function(component, event, helper){
+    var item = event.getParam("item");
+    // helper.createCampingItem(component,newItem);
+    var action = component.get("c.saveItem");
+        action.setParams({
+            "campingItem": item
+        });
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var itemList = component.get("v.items");
+                itemList.push(response.getReturnValue());
+                component.set("v.items", itemList);
+            }
+        });
+        $A.enqueueAction(action);
   }
 });

@@ -1,5 +1,5 @@
 ({
-    createItem: function(component, item) {
+    createCampingItem:function(component,item){
         var action = component.get("c.saveItem");
         action.setParams({
             "campingItem": item
