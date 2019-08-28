@@ -21,8 +21,8 @@
             </aura:iteration>
         </ul>
         
-        <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}" label="funds"
-                     previousPage="{!c.onPreviousPage}" nextPage="{!c.onNextPage}"/>
+        <!-- <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}" label="funds"
+                     previousPage="{!c.onPreviousPage}" nextPage="{!c.onNextPage}"/> -->
         
         <c:FundInfoPopup aura:id="popup"/>
         
