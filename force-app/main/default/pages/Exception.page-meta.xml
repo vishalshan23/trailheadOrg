@@ -3,17 +3,12 @@
     <apiVersion>46.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>Default Lightning Platform page for post-authentication errors</description>
+    <description>Default Lightning Platformm page for post-authentication errors</description>
     <label>Exception</label>
     <packageVersions>
         <majorNumber>2</majorNumber>
         <minorNumber>241</minorNumber>
         <namespace>SDOC</namespace>
-    </packageVersions>
-    <packageVersions>
-        <majorNumber>1</majorNumber>
-        <minorNumber>0</minorNumber>
-        <namespace>Webkul_cm</namespace>
     </packageVersions>
     <packageVersions>
         <majorNumber>1</majorNumber>
