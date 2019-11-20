@@ -77,6 +77,12 @@
             ],
             "c/nouislider": [
                 "../staticresources/nouislider/nouislider.js"
+            ],
+            "c/sessionList": [
+                "sessionList/sessionList.js"
+            ],
+            "c/sessionDetails": [
+                "sessionDetails/sessionDetails.js"
             ]
         }
     },

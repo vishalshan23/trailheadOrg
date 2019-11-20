@@ -1,0 +1,224 @@
+<apex:page >
+    <script>
+        // var let and const
+        /* var name = 'Vishal';
+        var name = 'Sanjana'
+        console.log(name); */
+
+
+        /* let name = 'Vishal';
+        let name = 'Sanjana';
+        console.log(name);
+        // you will get an error name is already defined 
+        */
+
+        /*     
+            //Functions
+            //regular function
+            function foo(bar) {
+
+            }
+
+            //function expression
+            const foo = function (bar) {
+
+            }
+
+            //named function expression
+            const foo = function foo(bar) {
+
+            }
+
+            //arrow functions
+            const foo = bar =>{
+
+            }
+ */
+
+            // Arrow functions
+
+            /* //no params, if only one statement curly braces can be removed
+            const vehicle =()=>{
+                console.log("This is a red car");
+            }
+
+            //implicit return
+            const vehicle =()=>{
+                return "This is a red car";
+            }
+
+            // can be written as following, if only return statement in the function , no need to write return
+            const vehicle = () => "this is a red car with 4 wheels";
+
+
+            // pass arguments in the arrow function
+            const vehicle = (type, color, wheels) => `thisone is a ${color} ${type} with ${wheels} wheels`;
+
+            // vehicle('car', 'red', 4);
+
+            //return an object
+            // you need to wrap everything within paranthesis
+            const vehicle = (type, color, wheels) => ({type: type, color:color, wheels:wheels});
+            console.log(vehicle('car', 'red', 4))
+
+             */
+
+            //  Destructing Objects and Arrays
+
+           /*  const vehicle = {
+                type: 'car',
+                color:'red',
+                wheels:4,
+                seats:2
+            }
+
+            const{type, seats} = vehicle; // this will go into vehilce object and search for type and seats keyword and assign it to const type and seats
+
+
+            // this will go into vehilce object and search for type and seats keyword and assign it to const t and s. 
+            // if it cannot find seats in the objects the default value of s will be 4
+            const{type : t, seats:s = 4} = vehicle; 
+
+
+            const person = ['vishal', 'shanbhag','programmer', 'falck'];
+
+            const{firstname, lastname} = person; // get first and second element of the array person
+
+            const{firstname, lastname, ...otherInfo} = person // rest operator ... get first , secon element and rest all elements are assigned to otherInfo
+
+             */
+
+
+            /*  //All about Loops
+            const cars = ['tesla', 'audi', 'volvo'];
+
+            // normal for loop
+            for(let i=0;i<cars.length; i++){
+                // console.log(cars[i]);
+            }
+            //forEach loop
+
+            // downside of for each loop is we cannot use break and continue statements in forEach
+            cars.forEach((car)=>{
+                // console.log(car);
+            })
+
+            cars.forEach((c, index) => console.log(`${c} is my ${index +1} car`));
+
+            // forOf loop to overcome the downside
+
+            for(const car of cars){
+                console.log(car);
+            }
+
+            for(const [index,car] of cars.entries()){
+                console.log(`${index} car is ${car}`);
+            }
+
+            //for in loop is used for objects
+
+            // not recommended to use For In loop in objects
+            const vehicle = {
+                type: 'car',
+                color:'red',
+                wheels:4,
+                seats:2
+            }
+
+            for(const property in vehicle){
+                console.log(property);
+                console.log(vehicle[property]); 
+            }
+
+            // while loop and do while loop is similar to apex
+             */
+
+             //Variable and Function hoisting
+             //Variable hoisting is:  within a function if you declare variable anywhere within a function , it will move the variable to top of the function , 
+            //  so you can use a variable in the funciton and then declare it
+
+            //Function hoisting is : function can be invoked before declaration of the function
+
+            //***************************************************************************************************//
+
+            //rest Operator , spread operator and differences
+            const person = ['vishal', 'shanbhag','programmer', 'falck'];
+
+            //rest operator
+            const{firstname, lastname, ...otherInfo} = person
+
+            //spread operator
+            const newPerson = [...person]; // all the elements within person array will be copie to newPerson array
+
+            //rest operator is used to group the rest of the elements of the array and spread operator is used to strip each element of the array and use it
+
+            // ****************************************************************************************************************************************
+
+            /* //All about arrays
+            check following array functions
+            some(callback); calls method for every element of the array untill it gets true
+            every(callback); calls method for every element of the array untill it gets false
+            concat(array);
+            a.push(elemt); add element at end of the array
+            a.unshift (element); add elements to start of the array
+            a.pop(ele);remove element at end of the array
+            a.shift(ele);remove elements to start of the array
+            a.map(function);  take each element of an array , apply function to it and return a new array
+            a.filter(function); filter the array and create a new array
+
+            // reduce 
+
+            const a =[1,2,3,3,3];
+            
+            const callback = (accumulator, currentValue) =>{return accumulator+currentValue}
+            a.reduce(callback);
+
+             */
+
+             //*******************************************************************************************************
+            /* //  Immediately invoked functions(IIF)
+            (function(){
+                console.log('I am here');
+            })()
+
+            // Difference between IIF function and window.onload is IIF if called the moment if created and window.onload comes into picture them dom is loaded
+
+ */
+            //*******************************************************************************************************
+           /*  Maps and set
+
+            const a = new Map();
+            a.set('key', 'valuye');
+            a.get('key');
+            // a.clear(); //clear the map
+            a.has('key'); //this will return true
+            a.size();
+            a.keys();
+            a.values();
+
+            const b = new Set();
+            b.add('value1');
+            b.has('value3');
+             */
+
+            //*******************************************************************************************************
+
+ 
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</apex:page>
